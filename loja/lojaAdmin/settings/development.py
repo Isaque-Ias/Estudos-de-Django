@@ -1,7 +1,7 @@
 from .settings import *
 
 DEBUG = True
-#Crie secret key para seu ambiente de desenvolvimento
+
 SECRET_KEY='cu(&PLYJnpSsOYw)[x*rzJ]R#%$#h;W6'
 DATABASES={
     'default':{
