@@ -1,0 +1,4 @@
+/Loja/venv
+/Loja/lojaAdmin/media/*
+*.pyc
+loja/lojaAdmin/db.sqlite3
