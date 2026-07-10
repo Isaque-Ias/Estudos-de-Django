@@ -1,2 +1,2 @@
 # Estudos-de-Django
-Estudando Djando
+Estudando Django
