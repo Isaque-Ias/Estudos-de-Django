@@ -1,12 +1,12 @@
 from django.urls import path
-from loja.views.ProdutoView import list_produto_view, edit_produto_view, edit_produto_postback, details_produto_view, delete_produto_view, delete_produto_postback, create_produto_view
+from loja.views.CategoriaView import list_categoria_view, edit_categoria_view, edit_categoria_postback, details_categoria_view, delete_categoria_view, delete_categoria_postback, create_categoria_view
 urlpatterns = [
-    path("", list_produto_view, name= 'produto'),
-    path("<int:id>", list_produto_view),
-    path("edit/<int:id>", edit_produto_view, name= 'edit_produto'),
-    path("edit", edit_produto_postback, name= 'edit_produto_postback'),
-    path("details/<int:id>", details_produto_view, name= 'details_produto'),
-    path("delete/<int:id>", delete_produto_view, name='delete_produto'),
-    path("delete", delete_produto_postback, name='delete_produto_postback'),
-    path("create", create_produto_view, name= 'create_produto'),
+    path("", list_categoria_view, name= 'categoria'),
+    path("<int:id>", list_categoria_view),
+    path("edit/<int:id>", edit_categoria_view, name= 'edit_categoria'),
+    path("edit", edit_categoria_postback, name= 'edit_categoria_postback'),
+    path("details/<int:id>", details_categoria_view, name= 'details_categoria'),
+    path("delete/<int:id>", delete_categoria_view, name='delete_categoria'),
+    path("delete", delete_categoria_postback, name='delete_categoria_postback'),
+    path("create", create_categoria_view, name= 'create_categoria'),
 ]

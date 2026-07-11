@@ -1,0 +1,47 @@
+from django.forms import ModelForm
+from django import forms
+from loja.models.Fabricante import Fabricante
+from django.contrib.auth.models import User
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': "form-control"}),
+            'email': forms.EmailInput(attrs={'class': "form-control"}),
+            'first_name': forms.TextInput(attrs={'class': "form-control"}),
+            'last_name': forms.TextInput(attrs={'class': "form-control"})
+        }
+
+class UserFabricanteForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        current_user = kwargs.pop('current_user', None)
+        super(UserFabricanteForm, self).__init__(*args, **kwargs)
+        if current_user and not current_user.is_superuser:
+            if self.instance and self.instance.perfil != 1:
+                del self.fields['perfil']
+    class Meta:
+        model = Fabricante
+        fields = ['user', 'perfil', 'Fabricante']
+        # Usamos '__all__' para exibir todos os campos do formulário
+        # fields = '__all__'
+        # Usamos uma lista para exibir campos específicos
+        # fields = ['pub_date', 'headline', 'content', 'reporter']
+        # Usamos exclude para excluir campos específicos do sistema
+        # exclude = ['']
+        widgets = {
+            'user': forms.HiddenInput(),
+            'perfil': forms.Select(attrs={'class': "form-control"}),
+            'Fabricante': forms.TextInput(attrs={'class': "form-control"})
+        }
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': "form-control"}),
+            'email': forms.EmailInput(attrs={'class': "form-control"}),
+            'first_name': forms.TextInput(attrs={'class': "form-control"}),
+            'last_name': forms.TextInput(attrs={'class': "form-control"})
+        }
