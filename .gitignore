@@ -2,3 +2,4 @@
 /Loja/lojaAdmin/media/*
 *.pyc
 loja/lojaAdmin/db.sqlite3
+__pycache__/
